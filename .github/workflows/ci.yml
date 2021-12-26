@@ -9,7 +9,7 @@ on:
     branches: [ master ]
 
 jobs:
-  install_dependencies: 
+  buld_test: 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -22,13 +22,5 @@ jobs:
         node-version: 16.13
         cache: 'pnpm'
     - run: pnpm install --frozen-lockfile
-  build:
-    needs: [install_dependencies]
-    runs-on: ubuntu-latest
-    steps:
     - run: pnpm run build
-  unit_test: 
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - run: pnpm test:unit
+    - run: pnpm test:unit
