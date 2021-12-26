@@ -2,6 +2,6 @@ image:
   file: .gitpod.dockerfile
 tasks:
   - init: |
-      echo 'TODO: build project'
+      pnpm install --frozen-lockfile
     command: |
-      echo 'TODO: start app'
+      pnpm run dev
