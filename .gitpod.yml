@@ -1,7 +1,10 @@
 image:
   file: .gitpod.dockerfile
+ports:
+- port: 3000
+  onOpen: open-preview
 tasks:
   - init: |
-      echo 'TODO: build project'
+      pnpm install --frozen-lockfile
     command: |
-      echo 'TODO: start app'
+      pnpm run dev
