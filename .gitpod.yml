@@ -1,10 +1,18 @@
+
 image:
   file: .gitpod.dockerfile
 ports:
-- port: 3000
-  onOpen: open-preview
+  - port: 3000
+    onOpen: open-preview
 tasks:
   - init: |
       pnpm install --frozen-lockfile
     command: |
       pnpm run dev
+
+vscode:
+  extensions:
+    - esbenp.prettier-vscode
+    - octref.vetur
+    - johnsoncodehk.volar
+    - dbaeumer.vscode-eslint

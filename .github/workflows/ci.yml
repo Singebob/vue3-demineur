@@ -6,21 +6,22 @@ name: CI
 on:
   push:
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
-  buld_test: 
+  buld_test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: pnpm/action-setup@646cdf48217256a3d0b80361c5a50727664284f2
-      with:
-        version: 6.24
-    - name: Use Node.js 16.13
-      uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
-      with:
-        node-version: 16.13
-        cache: 'pnpm'
-    - run: pnpm install --frozen-lockfile
-    - run: pnpm run build
-    - run: pnpm test:unit
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@646cdf48217256a3d0b80361c5a50727664284f2
+        with:
+          version: 6.24
+      - name: Use Node.js 16.13
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+        with:
+          node-version: 16.13
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+      - run: pnpm test:unit
+      - run: pnpm run lint
